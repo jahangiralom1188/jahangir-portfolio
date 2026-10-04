@@ -6,7 +6,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 
-import heroImage from "../assets/jahangir-hero.png";
+import heroImage from "../assets/jahangir-hero.webp";
 import siteConfig from "../data/siteConfig";
 
 function Hero() {
