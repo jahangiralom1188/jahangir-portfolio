@@ -143,12 +143,26 @@ function Contact() {
                   whileTap={{
                     scale: 0.98,
                   }}
-                  className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[#F5F5F2] px-5 py-3 text-sm font-medium text-[#07090D] transition-colors duration-300 hover:bg-white"
+                  style={{
+                    color: "#07090D",
+                    backgroundColor: "#F5F5F2",
+                  }}
+                  className="group mt-8 inline-flex items-center gap-3 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 hover:bg-white"
                 >
-                  Start a conversation
+                  <span
+                    style={{
+                      color: "#07090D",
+                      display: "inline-block",
+                      opacity: 1,
+                      visibility: "visible",
+                    }}
+                  >
+                    Start a conversation
+                  </span>
 
                   <ArrowUpRight
                     size={16}
+                    style={{ color: "#07090D" }}
                     className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </motion.a>
