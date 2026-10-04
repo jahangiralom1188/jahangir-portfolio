@@ -19,23 +19,23 @@ const siteConfig = {
 
   projects: {
     studyhub: {
-      github: "#",
-      live: "#",
+      github: null,
+      live: "https://study-hub-rho-neon.vercel.app/",
     },
 
     dailyflow: {
-      github: "#",
-      live: "#",
+      github: null,
+      live: "/DailyFlow.apk",
     },
 
     foodsMart: {
-      github: "#",
-      live: "#",
+      github: null,
+      live: null,
     },
 
     silentCaller: {
-      github: "#",
-      live: "#",
+      github: null,
+      live: null,
     },
   },
 };
