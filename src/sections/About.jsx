@@ -12,60 +12,44 @@ const focusAreas = [
     number: "01",
     title: "Web Development",
     description:
-      "Building responsive interfaces and full-stack web applications with a focus on practical user experiences.",
-    tags: ["React", "Vite", "JavaScript"],
+      "Building responsive interfaces and practical web applications with modern frontend and backend technologies.",
     icon: Code2,
-    accent: "blue",
   },
   {
     number: "02",
     title: "Mobile Development",
     description:
-      "Creating practical Android applications for everyday problems, with attention to usability and reliable functionality.",
-    tags: ["Java", "Android", "SQLite"],
+      "Developing Android applications focused on useful features, clean interfaces, local storage, notifications, and everyday workflows.",
     icon: Smartphone,
-    accent: "purple",
   },
   {
     number: "03",
     title: "Backend & Data",
     description:
-      "Working with server-side logic, APIs, databases, and the systems that connect applications together.",
-    tags: ["Node.js", "Express", "MongoDB"],
+      "Working with APIs, server-side logic, databases, and the systems behind applications.",
     icon: Database,
-    accent: "green",
   },
   {
     number: "04",
     title: "Beyond Code",
     description:
-      "Music and guitar give me another way to explore creativity, discipline, and expression outside software.",
-    tags: ["Guitar", "Music", "Creativity"],
+      "Exploring guitar, music, creativity, and the ideas that shape how I approach building digital products.",
     icon: Music2,
-    accent: "orange",
   },
 ];
 
-const accentStyles = {
-  blue: {
-    icon: "text-[#7C86FF]",
-    glow: "bg-[#5865F2]/10",
-    line: "bg-[#5865F2]",
+const reveal = {
+  hidden: {
+    opacity: 0,
+    y: 24,
   },
-  purple: {
-    icon: "text-purple-300",
-    glow: "bg-purple-500/10",
-    line: "bg-purple-400",
-  },
-  green: {
-    icon: "text-emerald-300",
-    glow: "bg-emerald-500/10",
-    line: "bg-emerald-400",
-  },
-  orange: {
-    icon: "text-orange-300",
-    glow: "bg-orange-500/10",
-    line: "bg-orange-400",
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
@@ -73,197 +57,247 @@ function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[#090C11] py-28 sm:py-36"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-[#07090D] py-28 sm:py-36"
     >
       {/* Ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-220px] top-[18%] h-[600px] w-[600px] rounded-full bg-[#5865F2]/[0.035] blur-[150px]"
+        className="pointer-events-none absolute right-[-15%] top-[18%] h-[500px] w-[500px] rounded-full bg-[#5865F2]/[0.025] blur-[140px]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
-        {/* ================= INTRO ================= */}
-
-        <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-24">
-          {/* Section label */}
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
+        {/* Header */}
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{
+              duration: 0.75,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
             <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#5865F2]" />
+              <motion.span
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="h-px w-8 origin-left bg-[#5865F2]"
+              />
 
               <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#5865F2]">
-                About Me
+                About
               </span>
             </div>
 
-            <p className="mt-6 hidden max-w-[180px] text-xs leading-6 text-white/25 lg:block">
-              A student developer focused on learning by building.
-            </p>
-          </motion.div>
-
-          {/* Main introduction */}
-          <div>
-            <motion.h2
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.75 }}
-              className="font-['Space_Grotesk'] text-5xl font-semibold leading-[0.92] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl"
-            >
+            <h2 className="mt-6 max-w-lg font-['Space_Grotesk'] text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
               Learning.
               <br />
               Building.
               <br />
-              <span className="text-white/30">Becoming.</span>
-            </motion.h2>
+              <span className="text-white/35">Becoming.</span>
+            </h2>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-9 max-w-2xl space-y-5 text-sm leading-7 text-white/50 sm:text-base sm:leading-8"
-            >
-              <p>
-                I&apos;m a Computer Science & Engineering student who enjoys
-                turning ideas into practical software. I like understanding
-                how things work, building them from the ground up, and
-                continuously improving along the way.
-              </p>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="max-w-2xl lg:pt-10"
+          >
+            <p className="text-base leading-8 text-white/55 sm:text-lg sm:leading-9">
+              I&apos;m a Computer Science &amp; Engineering student focused on
+              learning by building. I enjoy turning ideas into practical web
+              and mobile applications while continuously improving how I
+              understand code, systems, and product thinking.
+            </p>
 
-              <p>
-                My current focus is web development, Android applications,
-                backend systems, and databases. Each project is an opportunity
-                to learn something new and turn that knowledge into something
-                useful.
-              </p>
-            </motion.div>
-
-            <motion.a
-              href="#work"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors duration-300 hover:text-white"
-            >
-              Explore my work
-
-              <ArrowUpRight
-                size={16}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </motion.a>
-          </div>
+            <p className="mt-6 text-base leading-8 text-white/35 sm:text-lg sm:leading-9">
+              My approach is simple: build something, understand why it works,
+              learn from what breaks, and keep improving.
+            </p>
+          </motion.div>
         </div>
 
-        {/* ================= FOCUS AREAS ================= */}
-
-        <div className="mt-24 border-y border-white/[0.06]">
-          <div className="grid sm:grid-cols-2">
-            {focusAreas.map((item, index) => {
-              const Icon = item.icon;
-              const accent = accentStyles[item.accent];
+        {/* Focus areas */}
+        <div className="mt-20 border-y border-white/[0.07] sm:mt-28">
+          <div className="grid md:grid-cols-2">
+            {focusAreas.map((area, index) => {
+              const Icon = area.icon;
 
               return (
                 <motion.article
-                  key={item.number}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
+                  key={area.number}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={reveal}
                   transition={{
-                    duration: 0.65,
-                    delay: index * 0.06,
+                    delay: index * 0.08,
                   }}
-                  className={`group relative overflow-hidden py-9 sm:px-8 sm:py-10 lg:px-10 ${
+                  whileHover="hover"
+                  className={`group relative min-h-[230px] overflow-hidden p-7 sm:p-9 lg:p-10 ${
                     index < 2
-                      ? "border-b border-white/[0.06]"
+                      ? "border-b border-white/[0.07]"
                       : ""
                   } ${
                     index % 2 === 0
-                      ? "sm:border-r sm:border-white/[0.06]"
-                      : ""
-                  } ${
-                    index === 2
-                      ? "sm:border-b-0"
+                      ? "md:border-r md:border-white/[0.07]"
                       : ""
                   }`}
                 >
                   {/* Hover glow */}
-                  <div
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full blur-[90px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent.glow}`}
+                  <motion.div
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                      },
+                      visible: {
+                        opacity: 0,
+                      },
+                      hover: {
+                        opacity: 1,
+                      },
+                    }}
+                    transition={{ duration: 0.5 }}
+                    className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#5865F2]/[0.07] blur-[70px]"
                   />
 
-                  {/* Top accent */}
-                  <div
-                    aria-hidden="true"
-                    className={`absolute left-0 top-0 h-px w-0 transition-all duration-500 group-hover:w-20 ${accent.line}`}
-                  />
-
-                  <div className="relative">
+                  <div className="relative z-10">
                     <div className="flex items-start justify-between">
-                      <div
-                        className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] ${accent.icon}`}
-                      >
-                        <Icon size={20} strokeWidth={1.7} />
-                      </div>
-
                       <span className="font-mono text-[10px] tracking-[0.18em] text-white/20">
-                        {item.number}
+                        {area.number}
                       </span>
+
+                      <motion.div
+                        variants={{
+                          hidden: {
+                            opacity: 0.35,
+                            x: 0,
+                            y: 0,
+                          },
+                          visible: {
+                            opacity: 0.35,
+                            x: 0,
+                            y: 0,
+                          },
+                          hover: {
+                            opacity: 0.8,
+                            x: 3,
+                            y: -3,
+                          },
+                        }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="text-[#5865F2]"
+                      >
+                        <Icon size={20} strokeWidth={1.5} />
+                      </motion.div>
                     </div>
 
-                    <h3 className="mt-8 font-['Space_Grotesk'] text-2xl font-medium tracking-[-0.025em] text-white">
-                      {item.title}
-                    </h3>
+                    <motion.h3
+                      variants={{
+                        hidden: {
+                          y: 0,
+                        },
+                        visible: {
+                          y: 0,
+                        },
+                        hover: {
+                          x: 3,
+                        },
+                      }}
+                      transition={{
+                        duration: 0.35,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className="mt-12 font-['Space_Grotesk'] text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl"
+                    >
+                      {area.title}
+                    </motion.h3>
 
-                    <p className="mt-4 max-w-md text-sm leading-7 text-white/40">
-                      {item.description}
+                    <p className="mt-4 max-w-md text-sm leading-7 text-white/35 transition-colors duration-500 group-hover:text-white/50">
+                      {area.description}
                     </p>
-
-                    <div className="mt-7 flex flex-wrap gap-2">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium text-white/35 transition-colors duration-300 group-hover:text-white/50"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
+
+                  {/* Bottom hover line */}
+                  <motion.div
+                    variants={{
+                      hidden: {
+                        scaleX: 0,
+                      },
+                      visible: {
+                        scaleX: 0,
+                      },
+                      hover: {
+                        scaleX: 1,
+                      },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="absolute bottom-0 left-0 h-px w-full origin-left bg-gradient-to-r from-[#5865F2]/60 via-[#5865F2]/20 to-transparent"
+                  />
                 </motion.article>
               );
             })}
           </div>
         </div>
 
-        {/* ================= STATEMENT ================= */}
-
+        {/* Closing statement */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mt-20 border-t border-white/[0.06] pt-8 sm:mt-24 sm:flex sm:items-end sm:justify-between"
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="mt-20 max-w-4xl sm:mt-28"
         >
-          <p className="max-w-3xl font-['Space_Grotesk'] text-2xl leading-tight tracking-[-0.025em] text-white/75 sm:text-3xl lg:text-4xl">
-            I don&apos;t want to simply learn technologies.
-            <span className="text-white/30">
-              {" "}
-              I want to understand them well enough to build something useful
-              with them.
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-white/20" />
+
+            <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/25">
+              My mindset
             </span>
+          </div>
+
+          <p className="mt-7 font-['Space_Grotesk'] text-3xl font-medium leading-[1.15] tracking-[-0.04em] text-white/80 sm:text-4xl lg:text-5xl">
+            I don&apos;t want to simply learn technologies. I want to
+            understand them well enough to build something useful with them.
           </p>
 
-          <p className="mt-6 text-[10px] font-medium uppercase tracking-[0.2em] text-white/20 sm:mb-1 sm:mt-0 sm:shrink-0">
-            Student / Developer / Builder
-          </p>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mt-10 h-px max-w-2xl bg-gradient-to-r from-[#5865F2]/50 to-transparent"
+          />
+
+          <div className="mt-5 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/20">
+            <span>Keep learning</span>
+            <ArrowUpRight size={12} />
+            <span>Keep building</span>
+          </div>
         </motion.div>
       </div>
     </section>
