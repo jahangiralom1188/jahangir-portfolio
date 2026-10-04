@@ -106,12 +106,26 @@ function Hero() {
           >
             <a
               href="#work"
-              className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#F5F5F2] px-6 py-3.5 text-sm font-medium text-[#07090D] transition-all duration-300 hover:scale-[1.02] hover:bg-white sm:w-auto"
+              style={{
+                color: "#07090D",
+                backgroundColor: "#F5F5F2",
+              }}
+              className="group inline-flex w-full items-center justify-center gap-3 rounded-full px-6 py-3.5 text-sm font-medium transition-all duration-300 hover:scale-[1.02] hover:bg-white sm:w-auto"
             >
-              View my work
+              <span
+                style={{
+                  color: "#07090D",
+                  display: "inline-block",
+                  opacity: 1,
+                  visibility: "visible",
+                }}
+              >
+                View my work
+              </span>
 
               <ArrowUpRight
                 size={17}
+                style={{ color: "#07090D" }}
                 className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </a>
