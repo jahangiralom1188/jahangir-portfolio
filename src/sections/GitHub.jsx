@@ -63,19 +63,19 @@ function GitHub() {
           </div>
         </div>
 
-        {/* ================= MAIN CARD ================= */}
+        {/* ================= MAIN GITHUB AREA ================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="group relative mt-14 overflow-hidden rounded-3xl border border-white/[0.08] bg-[#0D1016] sm:mt-20"
+          className="relative mt-14 overflow-hidden border-y border-white/[0.07] sm:mt-20"
         >
-          {/* Grid background */}
+          {/* Subtle grid */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-[0.035]"
+            className="pointer-events-none absolute inset-0 opacity-[0.025]"
             style={{
               backgroundImage:
                 "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
@@ -83,66 +83,65 @@ function GitHub() {
             }}
           />
 
-          {/* Glow */}
+          {/* Ambient glow */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#5865F2]/10 blur-[110px] transition-opacity duration-500 group-hover:bg-[#5865F2]/15"
+            className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#5865F2]/[0.08] blur-[110px] transition-opacity duration-700 group-hover:opacity-100"
           />
 
-          <div className="relative p-6 sm:p-10 lg:p-14">
-            {/* Top row */}
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-              <div className="max-w-2xl">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white">
-                  <FaGithub size={27} />
+          <div className="relative grid lg:grid-cols-[1fr_auto]">
+            {/* Main content */}
+            <div className="px-1 py-12 sm:px-5 sm:py-14 lg:py-16">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.025] text-white">
+                  <FaGithub size={23} />
                 </div>
 
-                <h3 className="mt-8 font-['Space_Grotesk'] text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                  Explore my repositories.
-                </h3>
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/25">
+                    Developer Profile
+                  </p>
 
-                <p className="mt-4 max-w-xl text-sm leading-7 text-white/40 sm:text-base sm:leading-8">
-                  See the code behind my projects, experiments, and ongoing
-                  learning. New work gets added as I build.
-                </p>
-
-                <a
-                  href={siteConfig.social.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group/button mt-8 inline-flex items-center gap-3 rounded-full bg-[#F5F5F2] px-6 py-3.5 text-sm font-semibold text-[#07090D] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
-                >
-                  Visit GitHub
-
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5"
-                  />
-                </a>
+                  <p className="mt-1 text-sm text-white/45">
+                    github.com/jahangiralom1188
+                  </p>
+                </div>
               </div>
 
-              {/* Decorative GitHub mark */}
-              <div
-                aria-hidden="true"
-                className="hidden text-white/[0.035] lg:block"
+              <h3 className="mt-10 max-w-2xl font-['Space_Grotesk'] text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                Explore the work behind the portfolio.
+              </h3>
+
+              <p className="mt-4 max-w-xl text-sm leading-7 text-white/40 sm:text-base sm:leading-8">
+                See the code behind my projects, experiments, and ongoing learning.
+                New work gets added as I build.
+              </p>
+
+              <a
+                href={siteConfig.social.github}
+                target="_blank"
+                rel="noreferrer"
+                className="group/button mt-8 inline-flex items-center gap-3 border-b border-white/20 pb-2 text-sm font-medium text-white transition-colors duration-300 hover:border-[#5865F2] hover:text-[#7C86FF]"
               >
-                <FaGithub size={170} />
-              </div>
+                Visit GitHub
+
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5"
+                />
+              </a>
             </div>
 
-            {/* Divider */}
-            <div className="my-10 h-px bg-white/[0.06]" />
-
-            {/* Indicators */}
-            <div className="grid gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] sm:grid-cols-3">
-              <div className="bg-[#0A0D12] p-5 sm:p-6">
+            {/* GitHub indicators */}
+            <div className="grid grid-cols-3 border-t border-white/[0.06] lg:w-[420px] lg:border-l lg:border-t-0">
+              <div className="border-r border-white/[0.06] px-4 py-8 sm:px-6 lg:py-10">
                 <GitBranch
                   size={18}
                   className="text-[#7C86FF]"
                   strokeWidth={1.7}
                 />
 
-                <p className="mt-5 text-sm font-medium text-white/70">
+                <p className="mt-6 text-sm font-medium text-white/70">
                   Projects
                 </p>
 
@@ -151,14 +150,14 @@ function GitHub() {
                 </p>
               </div>
 
-              <div className="bg-[#0A0D12] p-5 sm:p-6">
+              <div className="border-r border-white/[0.06] px-4 py-8 sm:px-6 lg:py-10">
                 <GitCommit
                   size={18}
                   className="text-purple-300"
                   strokeWidth={1.7}
                 />
 
-                <p className="mt-5 text-sm font-medium text-white/70">
+                <p className="mt-6 text-sm font-medium text-white/70">
                   Development
                 </p>
 
@@ -167,10 +166,10 @@ function GitHub() {
                 </p>
               </div>
 
-              <div className="bg-[#0A0D12] p-5 sm:p-6">
+              <div className="px-4 py-8 sm:px-6 lg:py-10">
                 <CodeIcon />
 
-                <p className="mt-5 text-sm font-medium text-white/70">
+                <p className="mt-6 text-sm font-medium text-white/70">
                   Open Source
                 </p>
 

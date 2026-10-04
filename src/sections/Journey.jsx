@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, GraduationCap, Rocket, Wrench } from "lucide-react";
+import {
+  ArrowUpRight,
+  GraduationCap,
+  Rocket,
+  Wrench,
+} from "lucide-react";
 
 const journey = [
   {
@@ -42,16 +47,16 @@ function Journey() {
       id="journey"
       className="relative overflow-hidden border-t border-white/[0.06] bg-[#090C11] py-28 sm:py-36"
     >
-      {/* Background glow */}
+      {/* Ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-180px] top-1/3 h-[500px] w-[500px] rounded-full bg-[#5865F2]/[0.035] blur-[140px]"
+        className="pointer-events-none absolute right-[-220px] top-1/3 h-[600px] w-[600px] rounded-full bg-[#5865F2]/[0.035] blur-[150px]"
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         {/* ================= HEADER ================= */}
 
-        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,6 +70,10 @@ function Journey() {
                 My Journey
               </span>
             </div>
+
+            <p className="mt-6 hidden max-w-[190px] text-xs leading-6 text-white/25 lg:block">
+              A timeline of learning, building, and the road ahead.
+            </p>
           </motion.div>
 
           <div>
@@ -73,9 +82,11 @@ function Journey() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7 }}
-              className="font-['Space_Grotesk'] text-5xl font-semibold tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl"
+              className="font-['Space_Grotesk'] text-5xl font-semibold leading-[0.95] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl"
             >
-              Still becoming.
+              Still
+              <br />
+              <span className="text-white/30">becoming.</span>
             </motion.h2>
 
             <motion.p
@@ -83,11 +94,11 @@ function Journey() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 max-w-2xl text-sm leading-7 text-white/40 sm:text-base sm:leading-8"
+              className="mt-7 max-w-2xl text-sm leading-7 text-white/45 sm:text-base sm:leading-8"
             >
               Every project, experiment, and challenge adds another layer to
-              the journey. I'm focused on learning by building and improving
-              with every step.
+              the journey. I&apos;m focused on learning by building and
+              improving with every step.
             </motion.p>
           </div>
         </div>
@@ -95,13 +106,13 @@ function Journey() {
         {/* ================= TIMELINE ================= */}
 
         <div className="relative mt-20 sm:mt-24">
-          {/* Desktop timeline */}
+          {/* Desktop timeline line */}
           <div
             aria-hidden="true"
-            className="absolute bottom-0 left-[31px] top-0 hidden w-px bg-gradient-to-b from-[#5865F2]/50 via-white/[0.08] to-transparent lg:block"
+            className="absolute bottom-8 left-[31px] top-8 hidden w-px bg-gradient-to-b from-[#5865F2]/50 via-white/[0.08] to-transparent lg:block"
           />
 
-          <div className="space-y-10 lg:space-y-0">
+          <div className="space-y-8 lg:space-y-0">
             {journey.map((item, index) => {
               const Icon = item.icon;
               const isCurrent = item.status === "Current";
@@ -118,12 +129,13 @@ function Journey() {
                   }}
                   className="group relative lg:min-h-[190px]"
                 >
-                  {/* Timeline node */}
+                  {/* ================= DESKTOP NODE ================= */}
+
                   <div className="absolute left-0 top-0 z-10 hidden lg:flex">
                     <div
                       className={`flex h-[62px] w-[62px] items-center justify-center rounded-full border bg-[#090C11] transition-all duration-500 ${
                         isCurrent
-                          ? "border-[#5865F2]/50 shadow-[0_0_30px_rgba(88,101,242,0.15)]"
+                          ? "border-[#5865F2]/50 shadow-[0_0_35px_rgba(88,101,242,0.16)]"
                           : "border-white/[0.08] group-hover:border-white/[0.18]"
                       }`}
                     >
@@ -133,15 +145,16 @@ function Journey() {
                         className={
                           isCurrent
                             ? "text-[#7C86FF]"
-                            : "text-white/35 group-hover:text-white/60"
+                            : "text-white/30 transition-colors duration-300 group-hover:text-white/60"
                         }
                       />
                     </div>
                   </div>
 
-                  {/* Mobile year */}
-                  <div className="mb-4 flex items-center gap-3 lg:hidden">
-                    <span className="font-['Space_Grotesk'] text-2xl font-semibold tracking-tight text-white">
+                  {/* ================= MOBILE HEADER ================= */}
+
+                  <div className="mb-5 flex items-center gap-3 lg:hidden">
+                    <span className="font-['Space_Grotesk'] text-2xl font-semibold tracking-[-0.03em] text-white">
                       {item.year}
                     </span>
 
@@ -156,29 +169,34 @@ function Journey() {
                     </span>
                   </div>
 
-                  {/* Content */}
+                  {/* ================= CONTENT ================= */}
+
                   <div className="lg:ml-[110px] lg:grid lg:grid-cols-[170px_1fr] lg:gap-12">
                     {/* Year */}
                     <div className="hidden lg:block">
-                      <span className="font-['Space_Grotesk'] text-3xl font-semibold tracking-[-0.04em] text-white/80">
+                      <span
+                        className={`font-['Space_Grotesk'] text-3xl font-semibold tracking-[-0.04em] ${
+                          isCurrent ? "text-white" : "text-white/60"
+                        }`}
+                      >
                         {item.year}
                       </span>
                     </div>
 
-                    {/* Details */}
-                    <div className="relative rounded-2xl border border-white/[0.07] bg-[#0D1016] p-6 transition-all duration-500 group-hover:border-white/[0.12] group-hover:bg-[#10141B] sm:p-8">
+                    {/* Card */}
+                    <div className="relative overflow-hidden border-y border-white/[0.06] py-7 transition-colors duration-500 group-hover:border-white/[0.12] sm:py-8 lg:pr-8">
                       {/* Hover glow */}
                       <div
                         aria-hidden="true"
-                        className={`pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#5865F2]/10 blur-[70px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
-                          isCurrent ? "opacity-40" : ""
+                        className={`pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#5865F2]/10 blur-[75px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                          isCurrent ? "opacity-30" : ""
                         }`}
                       />
 
                       <div className="relative">
-                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                          <div>
-                            <h3 className="font-['Space_Grotesk'] text-2xl font-medium tracking-tight text-white sm:text-3xl">
+                        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                          <div className="max-w-3xl">
+                            <h3 className="font-['Space_Grotesk'] text-2xl font-medium tracking-[-0.025em] text-white sm:text-3xl">
                               {item.title}
                             </h3>
 

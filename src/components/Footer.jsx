@@ -7,122 +7,126 @@ import {
 
 import siteConfig from "../data/siteConfig";
 
+const footerLinks = [
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Stack", href: "#stack" },
+  { label: "Journey", href: "#journey" },
+  { label: "Building", href: "#building" },
+  { label: "GitHub", href: "#github" },
+  { label: "Contact", href: "#contact" },
+];
+
 function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = [
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "Stack", href: "#stack" },
-    { label: "Journey", href: "#journey" },
-    { label: "Building", href: "#building" },
-    { label: "GitHub", href: "#github" },
-    { label: "Contact", href: "#contact" },
-  ];
-
   return (
     <footer className="border-t border-white/[0.06] bg-[#07090D]">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
-        {/* Top */}
-        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
+        {/* Main footer */}
+        <div className="grid gap-12 py-14 lg:grid-cols-[1fr_auto] lg:items-start lg:py-16">
           {/* Brand */}
           <div>
             <a
               href="#home"
-              className="group inline-flex items-center gap-2 text-xl font-semibold tracking-[-0.04em] text-[#F5F5F2]"
+              className="group inline-flex items-center gap-2"
             >
-              JAHAN
+              <span className="font-['Space_Grotesk'] text-lg font-semibold tracking-[-0.04em] text-white">
+                JAHAN
+              </span>
 
-              <span className="h-1.5 w-1.5 rounded-full bg-[#5865F2] transition-transform duration-300 group-hover:scale-150" />
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-[#5865F2] transition-transform duration-300 group-hover:scale-125"
+              />
             </a>
 
-            <p className="mt-3 max-w-xs text-sm leading-6 text-[#9297A3]">
+            <p className="mt-4 max-w-xs text-sm leading-6 text-white/25">
               Building ideas into digital products.
             </p>
           </div>
 
           {/* Navigation */}
-          <nav
-            aria-label="Footer navigation"
-            className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm sm:grid-cols-3"
-          >
-            {footerLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[#9297A3] transition-colors duration-300 hover:text-[#F5F5F2]"
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav aria-label="Footer navigation">
+            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.2em] text-white/20">
+              Navigate
+            </p>
+
+            <div className="grid grid-cols-2 gap-x-12 gap-y-3 sm:grid-cols-4 lg:grid-cols-4">
+              {footerLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm text-white/35 transition-colors duration-300 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </nav>
         </div>
 
-        {/* Divider */}
-        <div className="my-10 h-px bg-white/[0.06]" />
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-5 border-t border-white/[0.06] py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-white/20">
+            © {currentYear} Jahangir Alom. All rights reserved.
+          </p>
 
-        {/* Bottom */}
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {/* Copyright */}
-          <div className="flex flex-col gap-2 text-xs text-[#9297A3] sm:flex-row sm:items-center sm:gap-4">
-            <span>© {currentYear} Jahangir Alom</span>
-
-            <span className="hidden text-white/20 sm:inline">
-              •
-            </span>
-
-            <span className="flex items-center gap-1.5">
-              Built with
-              <Heart
-                size={11}
-                className="fill-current text-[#5865F2]"
-              />
-              and code.
-            </span>
-          </div>
-
-          {/* Socials */}
-          <div className="flex items-center gap-2">
-            {/* GitHub */}
+          <div className="flex flex-wrap items-center gap-5">
             <a
               href={siteConfig.social.github}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
               aria-label="GitHub"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.07] bg-white/[0.02] text-white/35 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+              className="text-white/25 transition-colors duration-300 hover:text-white"
             >
               <FaGithub size={15} />
             </a>
 
-            {/* LinkedIn */}
             <a
               href={siteConfig.social.linkedin}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
               aria-label="LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.07] bg-white/[0.02] text-white/35 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+              className="text-white/25 transition-colors duration-300 hover:text-white"
             >
               <FaLinkedinIn size={15} />
             </a>
 
-            {/* WhatsApp */}
             <a
               href={siteConfig.social.whatsapp}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
               aria-label="WhatsApp"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.07] bg-white/[0.02] text-white/35 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+              className="text-white/25 transition-colors duration-300 hover:text-white"
             >
-              <FaWhatsapp size={16} />
+              <FaWhatsapp size={15} />
             </a>
 
-            {/* Back to top */}
+            <span
+              aria-hidden="true"
+              className="hidden h-4 w-px bg-white/[0.08] sm:block"
+            />
+
+            <span className="hidden items-center gap-1.5 text-xs text-white/20 sm:flex">
+              Built with
+              <Heart
+                size={12}
+                className="text-[#5865F2]"
+                fill="currentColor"
+              />
+              and code
+            </span>
+
             <a
               href="#home"
               aria-label="Back to top"
-              className="ml-2 flex h-9 w-9 items-center justify-center rounded-full border border-[#5865F2]/30 bg-[#5865F2]/10 text-[#5865F2] transition-all duration-300 hover:-translate-y-1 hover:border-[#5865F2]/60 hover:bg-[#5865F2]/20"
+              className="group flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.07] text-white/25 transition-all duration-300 hover:border-white/[0.15] hover:text-white"
             >
-              <ArrowUp size={15} />
+              <ArrowUp
+                size={14}
+                className="transition-transform duration-300 group-hover:-translate-y-0.5"
+              />
             </a>
           </div>
         </div>

@@ -88,16 +88,16 @@ function Skills() {
       id="stack"
       className="relative overflow-hidden border-t border-white/[0.06] bg-[#07090D] py-28 sm:py-36"
     >
-      {/* Background glow */}
+      {/* Ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[-180px] top-1/3 h-[500px] w-[500px] rounded-full bg-[#5865F2]/[0.035] blur-[140px]"
+        className="pointer-events-none absolute left-[-220px] top-1/3 h-[600px] w-[600px] rounded-full bg-[#5865F2]/[0.035] blur-[150px]"
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         {/* ================= HEADER ================= */}
 
-        <div className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+        <div className="mb-16 grid gap-10 lg:mb-24 lg:grid-cols-[0.65fr_1.35fr] lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -111,6 +111,10 @@ function Skills() {
                 My Stack
               </span>
             </div>
+
+            <p className="mt-6 hidden max-w-[190px] text-xs leading-6 text-white/25 lg:block">
+              Technologies I use to turn ideas into working software.
+            </p>
           </motion.div>
 
           <div>
@@ -119,9 +123,11 @@ function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7 }}
-              className="font-['Space_Grotesk'] text-5xl font-semibold tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl"
+              className="font-['Space_Grotesk'] text-5xl font-semibold leading-[0.95] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl"
             >
-              Tools I build with.
+              Tools I build
+              <br />
+              <span className="text-white/30">with.</span>
             </motion.h2>
 
             <motion.p
@@ -129,85 +135,99 @@ function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 max-w-2xl text-sm leading-7 text-white/40 sm:text-base sm:leading-8"
+              className="mt-7 max-w-2xl text-sm leading-7 text-white/45 sm:text-base sm:leading-8"
             >
-              A practical collection of technologies and tools I'm working
-              with across web development, mobile applications, backend
-              systems, and databases.
+              A practical collection of technologies and tools I&apos;m
+              working with across web development, mobile applications,
+              backend systems, and databases.
             </motion.p>
           </div>
         </div>
 
         {/* ================= SKILL GRID ================= */}
 
-        <div className="grid gap-px overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((group, index) => {
-            const Icon = group.icon;
-            const accent = accentStyles[group.accent];
+        <div className="border-y border-white/[0.06]">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+            {skillGroups.map((group, index) => {
+              const Icon = group.icon;
+              const accent = accentStyles[group.accent];
 
-            return (
-              <motion.article
-                key={group.number}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.04,
-                }}
-                className="group relative overflow-hidden bg-[#0D1016] p-6 transition-colors duration-500 hover:bg-[#10141B] sm:p-7 lg:p-8"
-              >
-                {/* Hover glow */}
-                <div
-                  aria-hidden="true"
-                  className={`pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full blur-[75px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent.glow}`}
-                />
+              return (
+                <motion.article
+                  key={group.number}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.04,
+                  }}
+                  className={`group relative overflow-hidden p-7 sm:p-8 lg:p-9 ${
+                    index < 3
+                      ? "border-b border-white/[0.06]"
+                      : ""
+                  } ${
+                    index % 3 !== 2
+                      ? "lg:border-r lg:border-white/[0.06]"
+                      : ""
+                  } ${
+                    index % 2 === 0
+                      ? "sm:border-r sm:border-white/[0.06] lg:border-r"
+                      : ""
+                  }`}
+                >
+                  {/* Hover glow */}
+                  <div
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full blur-[80px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent.glow}`}
+                  />
 
-                {/* Top accent */}
-                <div
-                  aria-hidden="true"
-                  className={`absolute left-0 top-0 h-px w-0 transition-all duration-500 group-hover:w-14 ${accent.line}`}
-                />
+                  {/* Accent line */}
+                  <div
+                    aria-hidden="true"
+                    className={`absolute left-0 top-0 h-px w-0 transition-all duration-500 group-hover:w-16 ${accent.line}`}
+                  />
 
-                <div className="relative">
-                  {/* Icon + number */}
-                  <div className="flex items-start justify-between">
-                    <div
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] ${accent.icon}`}
-                    >
-                      <Icon size={20} strokeWidth={1.7} />
+                  <div className="relative">
+                    {/* Icon / number */}
+                    <div className="flex items-start justify-between">
+                      <div
+                        className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] ${accent.icon}`}
+                      >
+                        <Icon size={20} strokeWidth={1.7} />
+                      </div>
+
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-white/20">
+                        {group.number}
+                      </span>
                     </div>
 
-                    <span className="font-mono text-[10px] tracking-[0.18em] text-white/20">
-                      {group.number}
-                    </span>
+                    {/* Title */}
+                    <h3 className="mt-8 font-['Space_Grotesk'] text-xl font-medium tracking-[-0.02em] text-white">
+                      {group.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="mt-2 text-sm leading-6 text-white/35">
+                      {group.description}
+                    </p>
+
+                    {/* Skills */}
+                    <div className="mt-7 flex flex-wrap gap-2">
+                      {group.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium text-white/45 transition-all duration-300 group-hover:border-white/[0.10] group-hover:text-white/55"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="mt-7 font-['Space_Grotesk'] text-xl font-medium tracking-tight text-white">
-                    {group.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="mt-2 text-sm leading-6 text-white/35">
-                    {group.description}
-                  </p>
-
-                  {/* Skills */}
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {group.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium text-white/45 transition-colors duration-300 group-hover:border-white/[0.10] group-hover:text-white/55"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.article>
-            );
-          })}
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
 
         {/* ================= BOTTOM STATEMENT ================= */}

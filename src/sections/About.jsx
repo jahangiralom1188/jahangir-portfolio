@@ -30,7 +30,7 @@ const focusAreas = [
     number: "03",
     title: "Backend & Data",
     description:
-      "Working with APIs, server-side logic, databases, and the systems that connect applications together.",
+      "Working with server-side logic, APIs, databases, and the systems that connect applications together.",
     tags: ["Node.js", "Express", "MongoDB"],
     icon: Database,
     accent: "green",
@@ -75,17 +75,17 @@ function About() {
       id="about"
       className="relative overflow-hidden border-t border-white/[0.06] bg-[#090C11] py-28 sm:py-36"
     >
-      {/* Background glow */}
+      {/* Ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-180px] top-1/4 h-[500px] w-[500px] rounded-full bg-[#5865F2]/[0.035] blur-[140px]"
+        className="pointer-events-none absolute right-[-220px] top-[18%] h-[600px] w-[600px] rounded-full bg-[#5865F2]/[0.035] blur-[150px]"
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
-        {/* ================= HEADER ================= */}
+        {/* ================= INTRO ================= */}
 
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          {/* Label */}
+        <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-24">
+          {/* Section label */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,16 +99,20 @@ function About() {
                 About Me
               </span>
             </div>
+
+            <p className="mt-6 hidden max-w-[180px] text-xs leading-6 text-white/25 lg:block">
+              A student developer focused on learning by building.
+            </p>
           </motion.div>
 
-          {/* Main copy */}
+          {/* Main introduction */}
           <div>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7 }}
-              className="font-['Space_Grotesk'] text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl"
+              transition={{ duration: 0.75 }}
+              className="font-['Space_Grotesk'] text-5xl font-semibold leading-[0.92] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl"
             >
               Learning.
               <br />
@@ -122,17 +126,17 @@ function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-8 max-w-2xl space-y-5 text-sm leading-7 text-white/45 sm:text-base sm:leading-8"
+              className="mt-9 max-w-2xl space-y-5 text-sm leading-7 text-white/50 sm:text-base sm:leading-8"
             >
               <p>
-                I'm a Computer Science & Engineering student who enjoys
+                I&apos;m a Computer Science & Engineering student who enjoys
                 turning ideas into practical software. I like understanding
                 how things work, building them from the ground up, and
                 continuously improving along the way.
               </p>
 
               <p>
-                My current focus is on web development, Android applications,
+                My current focus is web development, Android applications,
                 backend systems, and databases. Each project is an opportunity
                 to learn something new and turn that knowledge into something
                 useful.
@@ -159,73 +163,84 @@ function About() {
 
         {/* ================= FOCUS AREAS ================= */}
 
-        <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.06] sm:grid-cols-2">
-          {focusAreas.map((item, index) => {
-            const Icon = item.icon;
-            const accent = accentStyles[item.accent];
+        <div className="mt-24 border-y border-white/[0.06]">
+          <div className="grid sm:grid-cols-2">
+            {focusAreas.map((item, index) => {
+              const Icon = item.icon;
+              const accent = accentStyles[item.accent];
 
-            return (
-              <motion.article
-                key={item.number}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.05,
-                }}
-                className="group relative overflow-hidden bg-[#0D1016] p-6 transition-colors duration-500 hover:bg-[#10141B] sm:p-8 lg:p-10"
-              >
-                {/* Hover glow */}
-                <div
-                  aria-hidden="true"
-                  className={`pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full blur-[80px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent.glow}`}
-                />
+              return (
+                <motion.article
+                  key={item.number}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: 0.65,
+                    delay: index * 0.06,
+                  }}
+                  className={`group relative overflow-hidden py-9 sm:px-8 sm:py-10 lg:px-10 ${
+                    index < 2
+                      ? "border-b border-white/[0.06]"
+                      : ""
+                  } ${
+                    index % 2 === 0
+                      ? "sm:border-r sm:border-white/[0.06]"
+                      : ""
+                  } ${
+                    index === 2
+                      ? "sm:border-b-0"
+                      : ""
+                  }`}
+                >
+                  {/* Hover glow */}
+                  <div
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full blur-[90px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent.glow}`}
+                  />
 
-                {/* Accent line */}
-                <div
-                  aria-hidden="true"
-                  className={`absolute left-0 top-0 h-px w-0 transition-all duration-500 group-hover:w-16 ${accent.line}`}
-                />
+                  {/* Top accent */}
+                  <div
+                    aria-hidden="true"
+                    className={`absolute left-0 top-0 h-px w-0 transition-all duration-500 group-hover:w-20 ${accent.line}`}
+                  />
 
-                <div className="relative">
-                  {/* Top row */}
-                  <div className="flex items-start justify-between">
-                    <div
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] ${accent.icon}`}
-                    >
-                      <Icon size={20} strokeWidth={1.7} />
+                  <div className="relative">
+                    <div className="flex items-start justify-between">
+                      <div
+                        className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] ${accent.icon}`}
+                      >
+                        <Icon size={20} strokeWidth={1.7} />
+                      </div>
+
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-white/20">
+                        {item.number}
+                      </span>
                     </div>
 
-                    <span className="font-mono text-[10px] tracking-[0.18em] text-white/20">
-                      {item.number}
-                    </span>
+                    <h3 className="mt-8 font-['Space_Grotesk'] text-2xl font-medium tracking-[-0.025em] text-white">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-4 max-w-md text-sm leading-7 text-white/40">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-7 flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium text-white/35 transition-colors duration-300 group-hover:text-white/50"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="mt-8 font-['Space_Grotesk'] text-2xl font-medium tracking-tight text-white">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-4 max-w-md text-sm leading-7 text-white/40">
-                    {item.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] font-medium text-white/35"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.article>
-            );
-          })}
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
 
         {/* ================= STATEMENT ================= */}
@@ -237,8 +252,8 @@ function About() {
           transition={{ duration: 0.7 }}
           className="mt-20 border-t border-white/[0.06] pt-8 sm:mt-24 sm:flex sm:items-end sm:justify-between"
         >
-          <p className="max-w-3xl font-['Space_Grotesk'] text-2xl leading-tight tracking-tight text-white/75 sm:text-3xl lg:text-4xl">
-            I don't want to simply learn technologies.
+          <p className="max-w-3xl font-['Space_Grotesk'] text-2xl leading-tight tracking-[-0.025em] text-white/75 sm:text-3xl lg:text-4xl">
+            I don&apos;t want to simply learn technologies.
             <span className="text-white/30">
               {" "}
               I want to understand them well enough to build something useful
