@@ -82,7 +82,7 @@ function Hero() {
             <br />
             DIGITAL
             <br />
-            <span className="text-white/30">PRODUCTS.</span>
+            <span className="text-white/40">PRODUCTS.</span>
           </motion.h1>
 
           {/* Description */}
@@ -90,7 +90,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="mt-6 max-w-xl text-sm leading-7 text-white/50 sm:mt-8 sm:text-base sm:leading-8 md:text-lg"
+            className="mt-6 max-w-xl text-sm leading-7 text-white/60 sm:mt-8 sm:text-base sm:leading-8 md:text-lg"
           >
             Computer Science & Engineering student focused on building
             practical web and mobile applications through code, creativity,
